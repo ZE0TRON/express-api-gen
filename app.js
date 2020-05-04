@@ -40,13 +40,13 @@ program.parse(process.argv);
   // write index.js
   createIndexJs(ora);
   // write api/routes/index.js
-  await createRoutesIndex(ora, program.routes);
+  createRoutesIndex(ora, program.routes);
   // write model for every model
-  await createModels(ora, program.models);
+  createModels(ora, program.models);
   // write controller for every route import model if match
-  await createControllers(ora, program.routes, program.models);
+  createControllers(ora, program.routes, program.models);
   // write router for every route import controller
-  await createRoutes(ora, program.routes);
+  createRoutes(ora, program.routes);
 })();
 
 console.log(program.routes);
