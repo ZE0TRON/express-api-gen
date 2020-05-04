@@ -1,4 +1,5 @@
 const { Command } = require("commander");
+const ora = require("ora");
 const { parseList } = require("./parser");
 const { createNpmPackage, installModules } = require("./npm");
 const {
@@ -7,7 +8,7 @@ const {
   createRoutesIndex,
   createModels,
   createControllers,
-  createRouters,
+  createRoutes,
 } = require("./apiGenerator");
 
 const program = new Command();
@@ -35,9 +36,9 @@ program.parse(process.argv);
   // npm install express body-parser --save
   await installModules(ora);
   // mkdir api
-  await createApiDir(ora);
+  await createApiDirs(ora);
   // write index.js
-  await createIndexJs(ora);
+  createIndexJs(ora);
   // write api/routes/index.js
   await createRoutesIndex(ora, program.routes);
   // write model for every model
@@ -45,7 +46,7 @@ program.parse(process.argv);
   // write controller for every route import model if match
   await createControllers(ora, program.routes, program.models);
   // write router for every route import controller
-  await createRouters(ora, program.routes);
+  await createRoutes(ora, program.routes);
 })();
 
 console.log(program.routes);

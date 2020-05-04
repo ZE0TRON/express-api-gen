@@ -4,17 +4,17 @@ function createNpmPackage(ora) {
     const spinner = ora("Initializing npm package").start();
     exec("npm init -y", (error, stdout, stderr) => {
       if (error) {
-        spinner.fail(error.message);
-        console.log(`error: ${error.message}`);
+        spinner.fail(error);
+        console.log(`error: ${error}`);
         resolve(false);
       }
       if (stderr) {
-        spinner.fail(error.message);
+        spinner.fail(error);
         console.log(`stderr: ${stderr}`);
 
         resolve(false);
       }
-      spinner.success();
+      spinner.succeed();
       resolve(true);
     });
   });
@@ -24,17 +24,11 @@ function installModules(ora) {
     const spinner = ora("Installing npm modules").start();
     exec("npm install express body-parser --save", (error, stdout, stderr) => {
       if (error) {
-        spinner.fail(error.message);
-        console.log(`error: ${error.message}`);
+        spinner.fail(error);
+        console.log(`error: ${error}`);
         resolve(false);
       }
-      if (stderr) {
-        spinner.fail(error.message);
-        console.log(`stderr: ${stderr}`);
-
-        resolve(false);
-      }
-      spinner.success();
+      spinner.succeed();
       resolve(true);
     });
   });
