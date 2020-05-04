@@ -1,0 +1,33 @@
+{
+  "name": "express-api-gen",
+  "version": "1.0.0",
+  "description": "An ExpressJS API Template Generator",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ZE0TRON/express-api-gen.git"
+  },
+  "keywords": [
+    "express",
+    "api",
+    "template",
+    "generator",
+    "express-gen",
+    "express-api"
+  ],
+  "author": "ZE0TRON",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ZE0TRON/express-api-gen/issues"
+  },
+  "homepage": "https://github.com/ZE0TRON/express-api-gen#readme",
+  "dependencies": {
+    "chalk": "^4.0.0",
+    "commander": "^5.1.0",
+    "ora": "^4.0.4"
+  }
+}
